@@ -2,29 +2,49 @@ import streamlit as st
 
 from utils.data_loader import load_data
 from utils.metrics import *
+from utils.filters import create_filters
 
 df = load_data()
+
+df = create_filters(df)
 
 st.title("📊 Executive Dashboard")
 
 col1,col2,col3,col4 = st.columns(4)
 
 col1.metric(
-    "Participants",
-    total_participants(df)
+    "Students",
+    total_students(df)
 )
 
 col2.metric(
-    "Avg Usage",
-    avg_usage(df)
+    "Avg Age",
+    avg_age(df)
 )
 
 col3.metric(
-    "Avg Anxiety",
-    avg_anxiety(df)
+    "Avg Social Media Hours",
+    avg_social_media(df)
 )
 
 col4.metric(
-    "Avg Depression",
-    avg_depression(df)
+    "Depression Rate %",
+    depression_rate(df)
+)
+
+col1,col2,col3 = st.columns(3)
+
+col1.metric(
+    "Stress",
+    avg_stress(df)
+)
+
+col2.metric(
+    "Anxiety",
+    avg_anxiety(df)
+)
+
+col3.metric(
+    "Addiction",
+    avg_addiction(df)
 )
