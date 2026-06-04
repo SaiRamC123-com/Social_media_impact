@@ -5,8 +5,6 @@ plotly
 scikit-learn
 matplotlib
 seaborn
-fpdf
-openpyxl
-fpdf
+fpdf2
 openpyxl
 xlsxwriter
