@@ -1,10 +1,11 @@
-
 import pandas as pd
 import streamlit as st
 
 @st.cache_data
 def load_data():
 
-    return pd.read_csv(
-        "data/social_media_mental_health.csv"
+    df = pd.read_csv(
+        "data/Teen_Mental_Health_Dataset.csv"
     )
+
+    return df
