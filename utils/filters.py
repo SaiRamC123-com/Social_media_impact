@@ -1,23 +1,23 @@
 import streamlit as st
 
-def sidebar_filters(df):
+def create_filters(df):
 
     gender = st.sidebar.multiselect(
         "Gender",
-        df["Gender"].unique(),
-        default=df["Gender"].unique()
+        df["gender"].unique(),
+        default=df["gender"].unique()
     )
 
     platform = st.sidebar.multiselect(
         "Platform",
-        df["Platform"].unique(),
-        default=df["Platform"].unique()
+        df["platform_usage"].unique(),
+        default=df["platform_usage"].unique()
     )
 
-    filtered = df[
-        (df["Gender"].isin(gender))
+    filtered_df = df[
+        (df["gender"].isin(gender))
         &
-        (df["Platform"].isin(platform))
+        (df["platform_usage"].isin(platform))
     ]
 
-    return filtered
+    return filtered_df
